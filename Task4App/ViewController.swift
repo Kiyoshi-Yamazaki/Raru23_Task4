@@ -11,18 +11,24 @@ class ViewController: UIViewController {
 
     @IBOutlet private weak var countLabel: UILabel!
 
+    private var count = 0
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        countLabel.text = "0"
+        updateCountLabel()
     }
 
     @IBAction func countUpAction(_ sender: Any) {
-        var count = Int(countLabel.text ?? "") ?? 0
         count += 1
-        countLabel.text = String(count)
+        updateCountLabel()
     }
 
     @IBAction func clearAction(_ sender: Any) {
-        countLabel.text = "0"
+        count = 0
+        updateCountLabel()
+    }
+
+    private func updateCountLabel() {
+        countLabel.text = String(count)
     }
 }
