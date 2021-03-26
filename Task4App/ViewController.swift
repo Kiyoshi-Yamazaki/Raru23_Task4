@@ -10,19 +10,25 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet private weak var countLabel: UILabel!
+    private var count = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        countLabel.text = "0"
+        upDateCount()
     }
 
     @IBAction func countUpAction(_ sender: Any) {
         var count = Int(countLabel.text ?? "") ?? 0
         count += 1
-        countLabel.text = String(count)
+        upDateCount()
     }
 
     @IBAction func clearAction(_ sender: Any) {
-        countLabel.text = "0"
+        count = 0
+        upDateCount()
+    }
+
+    private func upDateCount() {
+        countLabel.text = String(count)
     }
 }
